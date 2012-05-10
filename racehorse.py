@@ -54,37 +54,98 @@ def thebet():
  h4="Magenta Rage Machine"
  h5="You Shoulda Put a Ring on It"
 
+ grouphigh=[]
+ groupmid=[]
+ grouplow=[]
+
+
+
+#to be made into a function
+# if h1moveval==6:
+#  grouphigh.append(horse1)
+# elif h1moveval==5:
+#  groupmid.append(horse1)
+# elif h1moveval==4:
+#  grouplow.append(horse1)
+# elif h1moveval==3:
+#  grouplow.append(horse1)
+
+
 
  highodds=random.randint(4,4)
  medodds=random.randint(4,5)
- lowodds=random.randint(4,6)
+ lowodds=random.randint(5,6)
 
- oddsoptions={1:highodds, 2:medodds, 3:lowodds}
+ oddsoptions=[highodds, medodds, lowodds]
 
- h1moveval=oddsoptions[random.randint(1,3)]
- h2moveval=oddsoptions[random.randint(1,3)]
- h3moveval=oddsoptions[random.randint(1,3)]
- h4moveval=oddsoptions[random.randint(1,3)]
- h5moveval=oddsoptions[random.randint(1,3)]
+ h1moveval=random.choice(oddsoptions)
+ if h1moveval==6:
+  grouphigh.append(horse1)
+ elif h1moveval==5:
+  groupmid.append(horse1)
+ elif h1moveval==4:
+  grouplow.append(horse1)
+ elif h1moveval==3:
+  grouplow.append(horse1)
+ h2moveval=random.choice(oddsoptions)
+ if h2moveval==6:
+  grouphigh.append(horse2)
+ elif h2moveval==5:
+  groupmid.append(horse2)
+ elif h2moveval==4:
+  grouplow.append(horse2)
+ elif h2moveval==3:
+  grouplow.append(horse2)
+ h3moveval=random.choice(oddsoptions)
+ if h3moveval==6:
+  grouphigh.append(horse3)
+ elif h3moveval==5:
+  groupmid.append(horse3)
+ elif h3moveval==4:
+  grouplow.append(horse3)
+ elif h3moveval==3:
+  grouplow.append(horse3)
+ h4moveval=random.choice(oddsoptions)
+ if h4moveval==6:
+  grouphigh.append(horse4)
+ elif h4moveval==5:
+  groupmid.append(horse4)
+ elif h4moveval==4:
+  grouplow.append(horse4)
+ elif h4moveval==3:
+  grouplow.append(horse4)
+ h5moveval=random.choice(oddsoptions)
+ if h5moveval==6:
+  grouphigh.append(horse5)
+ elif h5moveval==5:
+  groupmid.append(horse5)
+ elif h5moveval==4:
+  grouplow.append(horse5)
+ elif h5moveval==3:
+  grouplow.append(horse5)
+
+ print "These are slow movers:"
+ for x in grouplow:
+  print "\t"+x
+ print
+ print "These are mid movers:"
+ for x in groupmid:
+  print "\t"+x
+ print
+ print "These are high movers:"
+ for x in grouphigh:
+  print "\t"+x
  horsesmove={h1moveval:horse1, h2moveval:horse2, h3moveval:horse3, h4moveval:horse4, h5moveval:horse5}
  movevalues=[h1moveval, h2moveval, h3moveval, h4moveval, h5moveval]
- highreturns=[]
- midreturns=[]
- lowreturns=[]
- for value in horsesmove:
-  if value==6:
-   lowreturns.append(horsesmove:[value])
-  elif value==5:
-   midreturns.append(horsesmove:[value])
-  elif value==4:
-   highreturns.append(horsesmove:[value])
- print "These pay more", highreturns, "These pay middle", midreturns, "These pay little", lowreturns
+ movevalues.sort()
+
  
- 
+
  
  global money
  global pickahorse
  pickahorse=raw_input("Pick a horse to win.\n>>")
+ print
  print "You have up to $%i to wager." % money
  global bet
  bet=input("How much would you like to wager?\n>>")
@@ -165,11 +226,11 @@ def thebet():
  print
 
 
-# if pickahorse==actualwin:
-#  if pickahorse in 
-# elif pickahorse!=actualwin:
-#  money=money-bet
-# print "You now have $%i" %money 
+ if pickahorse==actualwin:
+  money=money+bet
+ elif pickahorse!=actualwin:
+  money=money-bet
+ print "You now have $%i" %money 
 
 
 while money >0:
