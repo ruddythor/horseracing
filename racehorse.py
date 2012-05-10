@@ -1,7 +1,10 @@
 import random
 import time
-
+import string
 print """
+
+
+
 
 
 
@@ -9,6 +12,8 @@ print """
          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    ~~~~~~~~~   Welcome to the Joshtucky Derby!!   ~~~~~~~~~~
          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 
 
 
@@ -50,9 +55,9 @@ def thebet():
  h5="You Shoulda Put a Ring on It"
 
 
- highodds=random.randint(1,3)
- medodds=random.randint(2,5)
- lowodds=random.randint(1,6)
+ highodds=random.randint(4,4)
+ medodds=random.randint(4,5)
+ lowodds=random.randint(4,6)
 
  oddsoptions={1:highodds, 2:medodds, 3:lowodds}
 
@@ -61,6 +66,22 @@ def thebet():
  h3moveval=oddsoptions[random.randint(1,3)]
  h4moveval=oddsoptions[random.randint(1,3)]
  h5moveval=oddsoptions[random.randint(1,3)]
+ horsesmove={h1moveval:horse1, h2moveval:horse2, h3moveval:horse3, h4moveval:horse4, h5moveval:horse5}
+ movevalues=[h1moveval, h2moveval, h3moveval, h4moveval, h5moveval]
+ highreturns=[]
+ midreturns=[]
+ lowreturns=[]
+ for value in horsesmove:
+  if value==6:
+   lowreturns.append(horsesmove:[value])
+  elif value==5:
+   midreturns.append(horsesmove:[value])
+  elif value==4:
+   highreturns.append(horsesmove:[value])
+ print "These pay more", highreturns, "These pay middle", midreturns, "These pay little", lowreturns
+ 
+ 
+ 
  global money
  global pickahorse
  pickahorse=raw_input("Pick a horse to win.\n>>")
@@ -144,11 +165,11 @@ def thebet():
  print
 
 
- if pickahorse==actualwin:
-  money=money+(bet)
- elif pickahorse!=actualwin:
-  money=money-bet
- print "You now have $%i" %money 
+# if pickahorse==actualwin:
+#  if pickahorse in 
+# elif pickahorse!=actualwin:
+#  money=money-bet
+# print "You now have $%i" %money 
 
 
 while money >0:
