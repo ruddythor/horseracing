@@ -41,7 +41,12 @@ The horses you can choose from are:
 
 global money
 money=1000
-def thebet():
+def horsegenerating():
+ global horse1
+ global horse2
+ global horse3
+ global horse4
+ global horse5
  horse1="The Long Mile"
  horse2="Slimy the Salamander"
  horse3="Jockey This"
@@ -51,9 +56,6 @@ def thebet():
  grouphigh=[]
  groupmid=[]
  grouplow=[]
-
-
-
  def groupbymoverate(x, y):
   if x==6:
    grouphigh.append(y)
@@ -72,6 +74,9 @@ def thebet():
 
  oddsoptions=[highodds, medodds, lowodds]
 
+#this just selects the move rate for each horse, then
+#groups the horses by how fast they move. 
+#the grouping allows you to make an informed bet
  horse1moveval=random.choice(oddsoptions)
  groupbymoverate(horse1moveval, horse1)
  horse2moveval=random.choice(oddsoptions)
@@ -99,7 +104,11 @@ def thebet():
  horsesmove={horse1moveval:horse1, horse2moveval:horse2, horse3moveval:horse3, horse4moveval:horse4, horse5moveval:horse5}
  movevalues=[horse1moveval, horse2moveval, horse3moveval, horse4moveval, horse5moveval]
  movevalues.sort()
+ global horsemovementvalues
+ horsemovementvalues={horse1:horse1moveval, horse2:horse2moveval, horse3:horse3moveval, horse4:horse4moveval, horse5:horse5moveval}
 
+
+def makeyourbets():
  global money
  global pickahorse
  pickahorse=raw_input("Pick a horse to win.\n>>")
@@ -116,14 +125,18 @@ def thebet():
  print
  print
 
- horsemovementvalues={horse1:horse1moveval, horse2:horse2moveval, horse3:horse3moveval, horse4:horse4moveval, horse5:horse5moveval}
-
+def therace():
  #def rndm_move_modifier():
  # x=random.randint(1,10)
  # 
  # after index reaches X
  # movevalue goes to Y
-
+ global horsemovementvalues
+ global horse1
+ global horse2
+ global horse3
+ global horse4
+ global horse5
  print
  print
  horse1go= ("-"*horsemovementvalues[horse1])+">"
@@ -136,14 +149,9 @@ def thebet():
  start3= ("-"*horsemovementvalues[horse3])+">"
  start4= ("-"*horsemovementvalues[horse4])+">"
  start5= ("-"*horsemovementvalues[horse5])+">"
-# horse1go=horse1+"\n"+"-"+horse1go
-# horse2go=horse2+"\n"+"-"+horse2go
-# horse3go=horse3+"\n"+"-"+horse3go
-# horse4go=horse4+"\n"+"-"+horse4go
-# horse5go=horse5+"\n"+"-"+horse5go
+
  global actualwin
  actualwin="" 
-
 
  while len(horse1go)<75 and len(horse2go)<75 and len(horse3go)<75 and len(horse4go)<75 and len(horse5go)<75:
    print horse1+"\n"+horse1go
@@ -189,7 +197,7 @@ def thebet():
  print
  print
 
-
+ global money
  if pickahorse==actualwin:
   money=money+bet
  elif pickahorse!=actualwin:
@@ -198,5 +206,7 @@ def thebet():
 
 
 while money >0:
- thebet()
+ horsegenerating()
+ makeyourbets()
+ therace()
 
