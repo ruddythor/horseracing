@@ -135,13 +135,12 @@ def thebet():
  print "These are high movers:"
  for x in grouphigh:
   print "\t"+x
+ print
+ 
  horsesmove={h1moveval:horse1, h2moveval:horse2, h3moveval:horse3, h4moveval:horse4, h5moveval:horse5}
  movevalues=[h1moveval, h2moveval, h3moveval, h4moveval, h5moveval]
  movevalues.sort()
 
- 
-
- 
  global money
  global pickahorse
  pickahorse=raw_input("Pick a horse to win.\n>>")
@@ -149,9 +148,9 @@ def thebet():
  print "You have up to $%i to wager." % money
  global bet
  bet=input("How much would you like to wager?\n>>")
- if bet>money:
+ while bet>money:
   bet=input("You do not have that much cash. How much would you like to wager?\n>>")
- elif bet<0:
+ while bet<0:
   bet=input("You cannot bet that amount. How much would you like to wager?\n>>")
  print
  print
@@ -165,6 +164,7 @@ def thebet():
  # 
  # after index reaches X
  # movevalue goes to Y
+
  print
  print
  h1go= ("-"*horsemovementvalues[h1])+">"
@@ -172,48 +172,53 @@ def thebet():
  h3go= ("-"*horsemovementvalues[h3])+">"
  h4go= ("-"*horsemovementvalues[h4])+">"
  h5go= ("-"*horsemovementvalues[h5])+">"
- h1=h1+"\n"+"-"+h1go
- h2=h2+"\n"+"-"+h2go
- h3=h3+"\n"+"-"+h3go
- h4=h4+"\n"+"-"+h4go
- h5=h5+"\n"+"-"+h5go
+ start1= ("-"*horsemovementvalues[h1])+">"
+ start2= ("-"*horsemovementvalues[h2])+">"
+ start3= ("-"*horsemovementvalues[h3])+">"
+ start4= ("-"*horsemovementvalues[h4])+">"
+ start5= ("-"*horsemovementvalues[h5])+">"
+# h1go=h1+"\n"+"-"+h1go
+# h2go=h2+"\n"+"-"+h2go
+# h3go=h3+"\n"+"-"+h3go
+# h4go=h4+"\n"+"-"+h4go
+# h5go=h5+"\n"+"-"+h5go
  global actualwin
  actualwin="" 
 
 
- while len(h1)<95 and len(h2)<95 and len(h3)<95 and len(h4)<95 and len(h5)<95:
-   print h1
-   print h2
-   print h3
-   print h4
-   print h5
+ while len(h1go)<75 and len(h2go)<75 and len(h3go)<75 and len(h4go)<75 and len(h5go)<75:
+   print h1+"\n"+h1go
+   print h2+"\n"+h2go
+   print h3+"\n"+h3go
+   print h4+"\n"+h4go
+   print h5+"\n"+h5go
    print
    print
    print
    print
    time.sleep(.15)
-   h1 += h1go
-   h2 += h2go
-   h3 += h3go
-   h4 += h4go
-   h5 += h5go 
+   h1go += start1
+   h2go += start2
+   h3go += start3
+   h4go += start4
+   h5go += start5
 
  winner = []
- if len(h1)>=95 or len(h2)>=95 or len(h3)>=95 or len(h4)>=95 or len(h5)>=95:
-  if len(h1)>=95:
+ if len(h1go)>=75 or len(h2go)>=75 or len(h3go)>=75 or len(h4go)>=75 or len(h5go)>=75:
+  if len(h1go)>=75:
    winner.append(horse1)
-  elif len(h2)>=95:
+  elif len(h2go)>=75:
    winner.append(horse2)
-  elif len(h3)>=95:
+  elif len(h3go)>=75:
    winner.append(horse3)
-  elif len(h4)>=95:
+  elif len(h4go)>=75:
    winner.append(horse4)
-  elif len(h5)>=95:
+  elif len(h5go)>=75:
    winner.append(horse5)
 
  actualwin=random.choice(winner)
  actualwin=str.lower(actualwin)
- print " ****  %s won!! ****" % actualwin
+ print " ********  %s won!! ********" % actualwin
 
 
 
