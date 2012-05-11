@@ -48,12 +48,6 @@ def thebet():
  horse4="Magenta Rage Machine"
  horse5="You Shoulda Put a Ring on It"
 
- h1="The Long Mile"
- h2="Slimy the Salamander"
- h3="Jockey This"
- h4="Magenta Rage Machine"
- h5="You Shoulda Put a Ring on It"
-
  grouphigh=[]
  groupmid=[]
  grouplow=[]
@@ -61,13 +55,13 @@ def thebet():
 
 
 #to be made into a function
-# if h1moveval==6:
+# if horse1moveval==6:
 #  grouphigh.append(horse1)
-# elif h1moveval==5:
+# elif horse1moveval==5:
 #  groupmid.append(horse1)
-# elif h1moveval==4:
+# elif horse1moveval==4:
 #  grouplow.append(horse1)
-# elif h1moveval==3:
+# elif horse1moveval==3:
 #  grouplow.append(horse1)
 
 
@@ -78,50 +72,50 @@ def thebet():
 
  oddsoptions=[highodds, medodds, lowodds]
 
- h1moveval=random.choice(oddsoptions)
- if h1moveval==6:
+ horse1moveval=random.choice(oddsoptions)
+ if horse1moveval==6:
   grouphigh.append(horse1)
- elif h1moveval==5:
+ elif horse1moveval==5:
   groupmid.append(horse1)
- elif h1moveval==4:
+ elif horse1moveval==4:
   grouplow.append(horse1)
- elif h1moveval==3:
+ elif horse1moveval==3:
   grouplow.append(horse1)
- h2moveval=random.choice(oddsoptions)
- if h2moveval==6:
+ horse2moveval=random.choice(oddsoptions)
+ if horse2moveval==6:
   grouphigh.append(horse2)
- elif h2moveval==5:
+ elif horse2moveval==5:
   groupmid.append(horse2)
- elif h2moveval==4:
+ elif horse2moveval==4:
   grouplow.append(horse2)
- elif h2moveval==3:
+ elif horse2moveval==3:
   grouplow.append(horse2)
- h3moveval=random.choice(oddsoptions)
- if h3moveval==6:
+ horse3moveval=random.choice(oddsoptions)
+ if horse3moveval==6:
   grouphigh.append(horse3)
- elif h3moveval==5:
+ elif horse3moveval==5:
   groupmid.append(horse3)
- elif h3moveval==4:
+ elif horse3moveval==4:
   grouplow.append(horse3)
- elif h3moveval==3:
+ elif horse3moveval==3:
   grouplow.append(horse3)
- h4moveval=random.choice(oddsoptions)
- if h4moveval==6:
+ horse4moveval=random.choice(oddsoptions)
+ if horse4moveval==6:
   grouphigh.append(horse4)
- elif h4moveval==5:
+ elif horse4moveval==5:
   groupmid.append(horse4)
- elif h4moveval==4:
+ elif horse4moveval==4:
   grouplow.append(horse4)
- elif h4moveval==3:
+ elif horse4moveval==3:
   grouplow.append(horse4)
- h5moveval=random.choice(oddsoptions)
- if h5moveval==6:
+ horse5moveval=random.choice(oddsoptions)
+ if horse5moveval==6:
   grouphigh.append(horse5)
- elif h5moveval==5:
+ elif horse5moveval==5:
   groupmid.append(horse5)
- elif h5moveval==4:
+ elif horse5moveval==4:
   grouplow.append(horse5)
- elif h5moveval==3:
+ elif horse5moveval==3:
   grouplow.append(horse5)
 
  print "These are slow movers:"
@@ -137,8 +131,8 @@ def thebet():
   print "\t"+x
  print
  
- horsesmove={h1moveval:horse1, h2moveval:horse2, h3moveval:horse3, h4moveval:horse4, h5moveval:horse5}
- movevalues=[h1moveval, h2moveval, h3moveval, h4moveval, h5moveval]
+ horsesmove={horse1moveval:horse1, horse2moveval:horse2, horse3moveval:horse3, horse4moveval:horse4, horse5moveval:horse5}
+ movevalues=[horse1moveval, horse2moveval, horse3moveval, horse4moveval, horse5moveval]
  movevalues.sort()
 
  global money
@@ -157,7 +151,7 @@ def thebet():
  print
  print
 
- horsemovementvalues={h1:h1moveval, h2:h2moveval, h3:h3moveval, h4:h4moveval, h5:h5moveval}
+ horsemovementvalues={horse1:horse1moveval, horse2:horse2moveval, horse3:horse3moveval, horse4:horse4moveval, horse5:horse5moveval}
 
  #def rndm_move_modifier():
  # x=random.randint(1,10)
@@ -167,53 +161,53 @@ def thebet():
 
  print
  print
- h1go= ("-"*horsemovementvalues[h1])+">"
- h2go= ("-"*horsemovementvalues[h2])+">"
- h3go= ("-"*horsemovementvalues[h3])+">"
- h4go= ("-"*horsemovementvalues[h4])+">"
- h5go= ("-"*horsemovementvalues[h5])+">"
- start1= ("-"*horsemovementvalues[h1])+">"
- start2= ("-"*horsemovementvalues[h2])+">"
- start3= ("-"*horsemovementvalues[h3])+">"
- start4= ("-"*horsemovementvalues[h4])+">"
- start5= ("-"*horsemovementvalues[h5])+">"
-# h1go=h1+"\n"+"-"+h1go
-# h2go=h2+"\n"+"-"+h2go
-# h3go=h3+"\n"+"-"+h3go
-# h4go=h4+"\n"+"-"+h4go
-# h5go=h5+"\n"+"-"+h5go
+ horse1go= ("-"*horsemovementvalues[horse1])+">"
+ horse2go= ("-"*horsemovementvalues[horse2])+">"
+ horse3go= ("-"*horsemovementvalues[horse3])+">"
+ horse4go= ("-"*horsemovementvalues[horse4])+">"
+ horse5go= ("-"*horsemovementvalues[horse5])+">"
+ start1= ("-"*horsemovementvalues[horse1])+">"
+ start2= ("-"*horsemovementvalues[horse2])+">"
+ start3= ("-"*horsemovementvalues[horse3])+">"
+ start4= ("-"*horsemovementvalues[horse4])+">"
+ start5= ("-"*horsemovementvalues[horse5])+">"
+# horse1go=horse1+"\n"+"-"+horse1go
+# horse2go=horse2+"\n"+"-"+horse2go
+# horse3go=horse3+"\n"+"-"+horse3go
+# horse4go=horse4+"\n"+"-"+horse4go
+# horse5go=horse5+"\n"+"-"+horse5go
  global actualwin
  actualwin="" 
 
 
- while len(h1go)<75 and len(h2go)<75 and len(h3go)<75 and len(h4go)<75 and len(h5go)<75:
-   print h1+"\n"+h1go
-   print h2+"\n"+h2go
-   print h3+"\n"+h3go
-   print h4+"\n"+h4go
-   print h5+"\n"+h5go
+ while len(horse1go)<75 and len(horse2go)<75 and len(horse3go)<75 and len(horse4go)<75 and len(horse5go)<75:
+   print horse1+"\n"+horse1go
+   print horse2+"\n"+horse2go
+   print horse3+"\n"+horse3go
+   print horse4+"\n"+horse4go
+   print horse5+"\n"+horse5go
    print
    print
    print
    print
    time.sleep(.15)
-   h1go += start1
-   h2go += start2
-   h3go += start3
-   h4go += start4
-   h5go += start5
+   horse1go += start1
+   horse2go += start2
+   horse3go += start3
+   horse4go += start4
+   horse5go += start5
 
  winner = []
- if len(h1go)>=75 or len(h2go)>=75 or len(h3go)>=75 or len(h4go)>=75 or len(h5go)>=75:
-  if len(h1go)>=75:
+ if len(horse1go)>=75 or len(horse2go)>=75 or len(horse3go)>=75 or len(horse4go)>=75 or len(horse5go)>=75:
+  if len(horse1go)>=75:
    winner.append(horse1)
-  elif len(h2go)>=75:
+  elif len(horse2go)>=75:
    winner.append(horse2)
-  elif len(h3go)>=75:
+  elif len(horse3go)>=75:
    winner.append(horse3)
-  elif len(h4go)>=75:
+  elif len(horse4go)>=75:
    winner.append(horse4)
-  elif len(h5go)>=75:
+  elif len(horse5go)>=75:
    winner.append(horse5)
 
  actualwin=random.choice(winner)
