@@ -10,7 +10,7 @@ print """
 
 
          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   ~~~~~~~~~   Welcome to the Joshtucky Derby!!   ~~~~~~~~~~
+  ~~~~~~~~~~   Welcome to the Joshtucky Derby!!   ~~~~~~~~~~
          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -54,15 +54,15 @@ def thebet():
 
 
 
-#to be made into a function
-# if horse1moveval==6:
-#  grouphigh.append(horse1)
-# elif horse1moveval==5:
-#  groupmid.append(horse1)
-# elif horse1moveval==4:
-#  grouplow.append(horse1)
-# elif horse1moveval==3:
-#  grouplow.append(horse1)
+ def groupbymoverate(x, y):
+  if x==6:
+   grouphigh.append(y)
+  elif x==5:
+   groupmid.append(y)
+  elif x==4:
+   grouplow.append(y)
+  elif x==3:
+   grouplow.append(y)
 
 
 
@@ -73,50 +73,15 @@ def thebet():
  oddsoptions=[highodds, medodds, lowodds]
 
  horse1moveval=random.choice(oddsoptions)
- if horse1moveval==6:
-  grouphigh.append(horse1)
- elif horse1moveval==5:
-  groupmid.append(horse1)
- elif horse1moveval==4:
-  grouplow.append(horse1)
- elif horse1moveval==3:
-  grouplow.append(horse1)
+ groupbymoverate(horse1moveval, horse1)
  horse2moveval=random.choice(oddsoptions)
- if horse2moveval==6:
-  grouphigh.append(horse2)
- elif horse2moveval==5:
-  groupmid.append(horse2)
- elif horse2moveval==4:
-  grouplow.append(horse2)
- elif horse2moveval==3:
-  grouplow.append(horse2)
+ groupbymoverate(horse2moveval, horse2)
  horse3moveval=random.choice(oddsoptions)
- if horse3moveval==6:
-  grouphigh.append(horse3)
- elif horse3moveval==5:
-  groupmid.append(horse3)
- elif horse3moveval==4:
-  grouplow.append(horse3)
- elif horse3moveval==3:
-  grouplow.append(horse3)
+ groupbymoverate(horse3moveval, horse3)
  horse4moveval=random.choice(oddsoptions)
- if horse4moveval==6:
-  grouphigh.append(horse4)
- elif horse4moveval==5:
-  groupmid.append(horse4)
- elif horse4moveval==4:
-  grouplow.append(horse4)
- elif horse4moveval==3:
-  grouplow.append(horse4)
+ groupbymoverate(horse4moveval, horse4)
  horse5moveval=random.choice(oddsoptions)
- if horse5moveval==6:
-  grouphigh.append(horse5)
- elif horse5moveval==5:
-  groupmid.append(horse5)
- elif horse5moveval==4:
-  grouplow.append(horse5)
- elif horse5moveval==3:
-  grouplow.append(horse5)
+ groupbymoverate(horse5moveval, horse5)
 
  print "These are slow movers:"
  for x in grouplow:
