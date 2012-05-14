@@ -29,11 +29,11 @@ print """
 
 
 The horses you can choose from are:
-* The Long Mile * 
-* Slimy the Salamander * 
-* Jockey This * 
-* Magenta Rage Machine * 
-* You Shoulda Put a Ring on It*
+\t* The Long Mile * 
+\t* Slimy the Salamander * 
+\t* Jockey This * 
+\t* Magenta Rage Machine * 
+\t* You Shoulda Put a Ring on It*
 """
 
 
@@ -47,12 +47,16 @@ def horsegenerating():
  global horse3
  global horse4
  global horse5
+ global allhorses
+ allhorses=("the long mile", "slimy the salamander", "jockey this", "magenta rage machine", "you shoulda put a ring on it")
+
+# print allhorses
  horse1="The Long Mile"
  horse2="Slimy the Salamander"
  horse3="Jockey This"
  horse4="Magenta Rage Machine"
  horse5="You Shoulda Put a Ring on It"
-
+ global grouplow, groupmid, grouphigh
  grouphigh=[]
  groupmid=[]
  grouplow=[]
@@ -66,17 +70,16 @@ def horsegenerating():
   elif x==3:
    grouplow.append(y)
 
-
-
- highodds=random.randint(4,4)
- medodds=random.randint(4,5)
- lowodds=random.randint(5,6)
-
- oddsoptions=[highodds, medodds, lowodds]
+#this defines the possible movement values horses can have
+ slowhorse=random.randint(3,4)
+ midhorse=random.randint(3,5)
+ fasthorse=random.randint(4,6)
 
 #this just selects the move rate for each horse, then
 #groups the horses by how fast they move. 
 #the grouping allows you to make an informed bet
+ oddsoptions=[slowhorse, midhorse, fasthorse]
+
  horse1moveval=random.choice(oddsoptions)
  groupbymoverate(horse1moveval, horse1)
  horse2moveval=random.choice(oddsoptions)
@@ -88,15 +91,15 @@ def horsegenerating():
  horse5moveval=random.choice(oddsoptions)
  groupbymoverate(horse5moveval, horse5)
 
- print "These are slow movers:"
+ print "These horses pay 4:1 odds:"
  for x in grouplow:
   print "\t"+x
  print
- print "These are mid movers:"
+ print "These horses pay 3:1 odds:"
  for x in groupmid:
   print "\t"+x
  print
- print "These are high movers:"
+ print "These horses pay 2:1 odds:"
  for x in grouphigh:
   print "\t"+x
  print
@@ -112,6 +115,11 @@ def makeyourbets():
  global money
  global pickahorse
  pickahorse=raw_input("Pick a horse to win.\n>>")
+ pickahorse=str.lower(pickahorse)
+ while pickahorse not in allhorses:
+  pickahorse=raw_input("Pick a horse to win.\n>>")
+  pickahorse=str.lower(pickahorse)
+ 
  print
  print "You have up to $%i to wager." % money
  global bet
@@ -184,24 +192,28 @@ def therace():
    winner.append(horse5)
 
  actualwin=random.choice(winner)
- actualwin=str.lower(actualwin)
  print " ********  %s won!! ********" % actualwin
+ actualwin=str.lower(actualwin)
 
-
-
- print
- #print horsemovementvalues
- print
- print
- print
- print
- print
+ print "\n\n\n\n"
+ global grouplow, groupmid, grouphigh
 
  global money
- if pickahorse==actualwin:
+# print grouplow, groupmid, grouphigh, "THESE ARE THE GROUPS"
+ grouplow=[x.lower() for x in grouplow]
+ groupmid=[x.lower() for x in groupmid]
+ grouphigh=[x.lower() for x in grouphigh]
+# print pickahorse, actualwin
+ if pickahorse==actualwin and pickahorse in grouplow:
+  money=money+bet+bet+bet
+ elif pickahorse==actualwin and pickahorse in groupmid:
+  money=money+bet+bet
+ elif pickahorse==actualwin and pickahorse in grouphigh:
   money=money+bet
  elif pickahorse!=actualwin:
   money=money-bet
+ else:
+  print "SOmething went wrong jim"
  print "You now have $%i" %money 
 
 
