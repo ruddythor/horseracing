@@ -1,8 +1,13 @@
-This is my third project in Python. It is a simple, text-based horseracing game.
+A simple game to bet on horses. Soon I'll have a function that will alter horses' movement rates at least once during the race to account for things like sprinting or fatigue.
 
-There are a few additions I'll make at some point, such as the ability to win
-more money based on the odds of the horse winning and horse qualities such as 
-sprinting, becoming winded, etc, that will affect their speed partially through the race.
+
+There are no graphics -- it's all textbased. But still fun!
+
+
+To run, open your command line and navigate to the directory the file is saved at.
+then type "Python racehorse.py" (unless you saved it as some other filename).
+Must have Python 2.6.X or greater to play it.
+
 
 
 feel free to do whatever you want with the program (except make profit from it!) Just as long as you give me credit, i'll be happy.
